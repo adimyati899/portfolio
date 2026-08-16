@@ -1,0 +1,6 @@
+const loader=document.querySelector(".loader");addEventListener("load",()=>setTimeout(()=>loader.classList.add("hide"),850));
+const cursor=document.querySelector(".cursor"),cursor2=document.querySelector(".cursor2");addEventListener("mousemove",e=>{if(cursor){cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px";cursor2.style.left=e.clientX+"px";cursor2.style.top=e.clientY+"px"}});
+document.querySelectorAll("a,.work,.brand,.cap,.stack-row,.social,.primary").forEach(el=>{el.addEventListener("mouseenter",()=>document.body.classList.add("hover"));el.addEventListener("mouseleave",()=>document.body.classList.remove("hover"))});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight;document.querySelector(".progress").style.width=(scrollY/h*100)+"%"});
+document.querySelectorAll(".magnetic").forEach(el=>{el.addEventListener("mousemove",e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px)`});el.addEventListener("mouseleave",()=>el.style.transform="")});
